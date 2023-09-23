@@ -18,6 +18,9 @@ def generateReport(report_id):
 
 
 def generate_report_store(store):
+    # hard coding current timestamp as max timestamp of all the observations
+    # it should be replaced with current timestamp when data is not static
+    # which is timezone.now()
     last_utc_timestamp = StoresLogs.objects.all().order_by('-timestamp_utc').first().timestamp_utc
 
     last_hour = last_hour_data(store, last_utc_timestamp)
