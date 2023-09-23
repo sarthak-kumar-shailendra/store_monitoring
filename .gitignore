@@ -1,0 +1,6 @@
+api/__pycache__/
+db.sqlite3
+.DS_Store
+api/migrations/__pycache__/
+output_csv/
+store_monitoring/__pycache__/
