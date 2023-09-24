@@ -36,6 +36,7 @@ Data Storage and Missing Data Handling
 7. if it exist then we are directly storing that entry in StoresLogs db
 8. else we are first creating an entry in the store db with the timezone 'America/Chicago'. Here the catch is that if that store doesn't exist in store db so there wont be any entry in StoreBusinessHours as well. That means that this store runs for 24/7 hours and that's how we are handling the missing data here. 
 
+Note - store_status.csv is missing from csv_files folder(since github is not allowing me to upload because of its size). Pls add that before running.
 Pls check api/migrations/0002_auto_20230923_1639.py file in migrations folder
 
     def create_store(apps, schema_editor):
