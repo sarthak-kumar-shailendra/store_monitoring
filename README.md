@@ -127,6 +127,12 @@ API endpoints
 1. POST -  http://127.0.0.1:8000/trigger_report/
 2. GET - http://127.0.0.1:8000/get_report/:reportid
 
+   <img width="1007" alt="Screenshot 2023-09-24 at 4 40 53 AM" src="https://github.com/sarthak-kumar-shailendra/store_monitoring/assets/69191344/de7aea3c-b63b-4928-a2eb-bd7279405dfd">
+    Pending State
+
+Csv data
+<img width="1008" alt="Screenshot 2023-09-24 at 4 42 01 AM" src="https://github.com/sarthak-kumar-shailendra/store_monitoring/assets/69191344/9cd1cd8d-9703-43d1-9c1f-34b061e9eb1d">
+
 
 We have created another DB for reports which has 3 columns - report id, report_data(path where file is stored), status
 
@@ -146,9 +152,6 @@ Here's the step-by-step breakdown of the logic for calculating uptime and downti
 8.  if yes, then based on log status we are measuring uptime and downtime
 9. Similarly, we are calculating last_day and last_week, only difference is we are iterating for all the filtered logs for the duration(last day/week) and not taking just 1st entry into consideration.
 
-
-
-<img width="1008" alt="Screenshot 2023-09-24 at 4 42 01 AM" src="https://github.com/sarthak-kumar-shailendra/store_monitoring/assets/69191344/9cd1cd8d-9703-43d1-9c1f-34b061e9eb1d">
 
 Report DB 
 <img width="1127" alt="Screenshot 2023-09-24 at 4 41 20 AM" src="https://github.com/sarthak-kumar-shailendra/store_monitoring/assets/69191344/c368d98b-be5f-47ef-9a3a-a4decf57a8f0">
