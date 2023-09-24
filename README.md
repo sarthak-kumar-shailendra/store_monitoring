@@ -1,4 +1,4 @@
-<img width="1127" alt="Screenshot 2023-09-24 at 4 41 20 AM" src="https://github.com/sarthak-kumar-shailendra/store_monitoring/assets/69191344/0ca50d4c-3f96-4715-a18a-27567912dcc6"><img width="1007" alt="Screenshot 2023-09-24 at 4 40 53 AM" src="https://github.com/sarthak-kumar-shailendra/store_monitoring/assets/69191344/9eb8384c-f947-4bec-92d2-6878e16df6c0">Loop monitors several restaurants in the US and needs to monitor if the store is online or not. All restaurants are supposed to be online during their business hours. Due to some unknown reasons, a store might go inactive for a few hours. Restaurant owners want to get a report of the how often this happened in the past.   
+Loop monitors several restaurants in the US and needs to monitor if the store is online or not. All restaurants are supposed to be online during their business hours. Due to some unknown reasons, a store might go inactive for a few hours. Restaurant owners want to get a report of the how often this happened in the past.   
 ## Data sources
 
 We will have 3 sources of data 
@@ -36,6 +36,8 @@ Data Storage and Missing Data Handling
 7. if it exist then we are directly storing that entry in StoresLogs db
 8. else we are first creating an entry in the store db with the timezone 'America/Chicago'. Here the catch is that if that store doesn't exist in store db so there wont be any entry in StoreBusinessHours as well. That means that this store runs for 24/7 hours and that's how we are handling the missing data here. 
 
+Pls check api/migrations/0002_auto_20230923_1639.py file in migrations folder
+
     def create_store(apps, schema_editor):
             Store.objects.all().delete()
             StoreBusinessHours.objects.all().delete()
@@ -63,7 +65,6 @@ Data Storage and Missing Data Handling
                         start_time_local=row['start_time_local'],
                         end_time_local=row['end_time_local'],
                     )
-                    #print(store_business_hours)
 
                 else:
                     storeCreated = Store.objects.create(
@@ -146,11 +147,10 @@ Here's the step-by-step breakdown of the logic for calculating uptime and downti
 9. Similarly, we are calculating last_day and last_week, only difference is we are iterating for all the filtered logs for the duration(last day/week) and not taking just 1st entry into consideration.
 
 
-![Uploading Screenshot 2023-09-24 at 4.40.53 AM.png…]()
-
-<img width="1127" alt="Screenshot 2023-09-24 at 4 41 20 AM" src="https://github.com/sarthak-kumar-shailendra/store_monitoring/assets/69191344/c368d98b-be5f-47ef-9a3a-a4decf57a8f0">
 
 <img width="1008" alt="Screenshot 2023-09-24 at 4 42 01 AM" src="https://github.com/sarthak-kumar-shailendra/store_monitoring/assets/69191344/9cd1cd8d-9703-43d1-9c1f-34b061e9eb1d">
 
+Report DB 
+<img width="1127" alt="Screenshot 2023-09-24 at 4 41 20 AM" src="https://github.com/sarthak-kumar-shailendra/store_monitoring/assets/69191344/c368d98b-be5f-47ef-9a3a-a4decf57a8f0">
 
  
